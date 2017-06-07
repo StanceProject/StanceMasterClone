@@ -3,7 +3,9 @@ const express = require('express')
     , massive = require('massive')
     , cors = require('cors')
     , session = require('express-session')
-    , config = require('./backend/config');
+    , config = require('./backend/config')
+    , stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
+;
     // , passport = require('passport') -- used for auth0
     // , Auth0Strategy = require('passport-auth0'); --used for auth0
 
