@@ -3,7 +3,9 @@ const express = require('express')
     , massive = require('massive')
     , cors = require('cors')
     , session = require('express-session')
-    , config = require('./backend/config');
+    , config = require('./backend/config')
+    , stripe = require('stripe')(config.STRIPE_KEYS.secretKey);
+;
     // , passport = require('passport') -- used for auth0
     // , Auth0Strategy = require('passport-auth0'); --used for auth0
 
@@ -92,7 +94,7 @@ app.delete('/api/cart/clear', cartControl.deleteCart);
 app.delete('/api/cart/clear/:product_id/:user_id', cartControl.deleteItemInCart);
 app.post('/api/cart/add', cartControl.createCart);
 app.put('/api/cart/update', cartControl.createCart);
-app.post('/api/cart/add/unlogged', cartControl.unloggedUserCart);  
+app.post('/api/cart/add/unlogged', cartControl.unloggedUserCart);
 
 // EMAIL LIST
 app.post('/api/email', emailListControl.addEmail);
