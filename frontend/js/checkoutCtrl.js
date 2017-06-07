@@ -4,6 +4,9 @@ angular.module('app')
   $scope.test = 'checkout working';
   $scope.test2 = mainSrvc.test;
 
+
+  $rootScope.total = 
+
   $scope.uspsGround = {
     "name": "USPS Shipping",
     "price": 0.00

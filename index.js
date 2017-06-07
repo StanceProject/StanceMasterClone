@@ -74,6 +74,7 @@ const usersControl = require('./backend/server/usersControl');
 const cartControl = require('./backend/server/cartControl');
 const emailListControl = require('./backend/server/emailListControl');
 const ordersControl = require('./backend/server/ordersControl');
+const billingControl = require('./backend/server/billingControl');
 
 // PRODUCTS
 app.get('/api/products/:mwk/:category', productsControl.getProducts);
@@ -101,7 +102,10 @@ app.post('/api/email', emailListControl.addEmail);
 
 // ORDERS
 app.get('/api/orders/:user_id', ordersControl.getOrders);
-app.post('/api/orders/submit', ordersControl.submitOrder); /* not in working order */
+app.post('/api/orders/submit', ordersControl.submitOrder);
+
+//BILLING
+app.post('/api/billing', billingControl.processPayment);
 
 //TEST////////////////////
 app.get('/test', function(req, res) {

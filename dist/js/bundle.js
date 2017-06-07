@@ -75,7 +75,9 @@ angular.module('app').run(function ($rootScope, mainSrvc) {
 });
 'use strict';
 
-angular.module('app').controller('billingCtrl', function ($rootScope, $scope, mainSrvc, $location, $anchorScroll, stripe) {
+angular.module('app').controller('billingCtrl', function ($rootScope, $scope, mainSrvc, $location, $anchorScroll, $state, stripe) {
+
+  $scope.total = $rootScope.total;
 
   $scope.checked = true;
 
@@ -102,21 +104,34 @@ angular.module('app').controller('billingCtrl', function ($rootScope, $scope, ma
     "price": 18.00
   };
 
+  ///////////////STRIPE///////////////
+
+  $scope.zeroOut = function () {
+    $scope.cart = [];
+    $scope.subTotal = 0;
+    $scope.items = 0;
+    $scope.total = 0;
+  };
+
+  $scope.payment = {};
+
   $scope.charge = function () {
     return stripe.card.createToken($scope.payment.card).then(function (response) {
+      console.log('in charge function', response);
       var payment = angular.copy($scope.payment);
       payment.card = void 0;
       payment.token = response.id;
-      checkoutService.processPayment($scope.total * 100, payment);
+      console.log($scope.total);
+      mainSrvc.processPayment($scope.total * 100, payment);
     }).then(function (payment) {
-      swal({
-        title: "Thank You!",
-        text: "Your order will be shipped within 3 business days.",
-        imageUrl: "http://www.sv411.com/wp-content/uploads/GoPro-Logo.jpg",
-        confirmButtonText: "Continue exporing GoBro"
-      });
-      $scope.zeroOut();
-      $state.go('home');
+      // swal({
+      //  title: "Thank You!",
+      //  text: "Your order will be shipped within 3,000,000 business days.",
+      //  imageUrl: "http://www.sv411.com/wp-content/uploads/GoPro-Logo.jpg",
+      //  confirmButtonText: "Continue exporing Stripe"
+      // })
+      // $scope.zeroOut();
+      $state.go('orders');
     }).catch(function (err) {
       if (err.type && /^Stripe/.test(err.type)) {
         console.log('Stripe error: ', err.message);
@@ -175,7 +190,7 @@ angular.module('app').controller('checkoutCtrl', function ($rootScope, $scope, m
   $scope.test = 'checkout working';
   $scope.test2 = mainSrvc.test;
 
-  $scope.uspsGround = {
+  $rootScope.total = $scope.uspsGround = {
     "name": "USPS Shipping",
     "price": 0.00
   };
@@ -556,6 +571,18 @@ angular.module('app').service('mainSrvc', function ($http) {
       url: "/logout"
     }).then(function (response) {});
   };
+
+  // BILLING //////////////////////////////////////////
+  this.processPayment = function (total, payment) {
+    return $http({
+      method: 'POST',
+      url: '/api/billing',
+      data: {
+        amount: total,
+        payment: payment
+      }
+    });
+  };
 });
 'use strict';
 
@@ -806,6 +833,7 @@ angular.module('app').directive("orderSummary", function () {
     controller: function controller($rootScope, $scope) {
       $scope.items = $rootScope.products;
       $scope.cartTotal = $rootScope.cartTotal;
+      $rootScope.total = 5 + $scope.cartTotal;
     }
   };
 });
