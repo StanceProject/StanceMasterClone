@@ -1772,7 +1772,8 @@ table {
         border-right: 0px;
         border-top: 0px;
         border-bottom: 0px;
-        padding: 0px; }
+        padding: 0px;
+        outline: none; }
         .header-container .header-right .header-right-bottom .header-right-bottom-left input {
           border: 0px;
           width: 70px;
@@ -1806,7 +1807,7 @@ table {
   width: 100%;
   z-index: 9999; }
   .search-results .search-left {
-    border-right: 1px solid grey;
+    border-right: 1px solid lightgrey;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;

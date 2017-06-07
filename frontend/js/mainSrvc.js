@@ -132,4 +132,16 @@ angular.module('app')
 
     });
   }
+
+  // BILLING //////////////////////////////////////////
+  this.processPayment = function(total, payment) {
+   return $http({
+    method: 'POST',
+    url: '/api/billing',
+    data: {
+       amount: total,
+       payment: payment
+    }
+   })
+  }
 });
