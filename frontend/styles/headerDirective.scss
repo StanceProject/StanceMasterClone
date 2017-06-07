@@ -541,6 +541,7 @@
         padding-top: 17px;
       }
 
+
       .header-right-bottom-left {
         position: absolute;
         right: 146px;
@@ -551,6 +552,9 @@
         border-top: 0px;
         border-bottom: 0px;
         padding: 0px;
+        outline: none;
+
+
 
         input {
           border: 0px;
@@ -558,6 +562,7 @@
           height: 42px;
           padding-left: 20px;
           transition: .5s all ease;
+
         }
 
         input:focus {
@@ -568,9 +573,8 @@
         .input-extended {
           width: 550px;
           height: 42px;
+
         }
-
-
       }
 
       .header-right-bottom-right:hover {
