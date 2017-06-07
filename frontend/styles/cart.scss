@@ -137,6 +137,11 @@
         margin-left: -10px;
         margin-bottom: 15px;
       }
+
+      h3 {
+        font-family: "regular";
+        color: gray;
+      }
     }
   }
 }/*end product right*/
@@ -391,6 +396,7 @@
         font-size: 24px;
         margin-bottom: 10px;
         letter-spacing: 1.5px;
+        line-height: 26px;
       }
       p {
         font-size: 13px;
@@ -449,7 +455,7 @@
       // border: 1px solid green;
       h3 {
         color: grey;
-        // text-decoration: line-through;
+        font-family: "regular";
       }
       h1 {
         color: #0484A9;
