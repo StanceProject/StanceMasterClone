@@ -1950,7 +1950,11 @@ table {
   font-family: "regular"; }
 
 button {
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
+
+[ui-sref] {
+  cursor: pointer; }
 
 .condensed {
   font-family: "condensed"; }

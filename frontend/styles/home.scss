@@ -5,6 +5,11 @@
 
 button{
   outline: none;
+  cursor: pointer;
+}
+
+[ui-sref]{
+  cursor: pointer;
 }
 
 .condensed{

@@ -601,6 +601,8 @@ angular.module('app').directive('randomDirective', function (mainSrvc, $location
             }
           }
           $scope.random = rand;
+
+          //////MOVES PAGE TO TOP/////////////
           $location.hash('top');
           $anchorScroll();
         });
