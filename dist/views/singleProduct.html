@@ -42,7 +42,7 @@
       </select>
       <div class="single-qty">
         <p class="bold">QTY</p>
-        <input class="single-box bold" type="text" value="1" min="1" ng-model="quantity"/>
+        <input class="single-box bold" ng-init="quantity=1" value="quantity" min="1" ng-model="quantity" />
       </div>
       <p class="single-availability"><span class="bold">Availability:</span> In Stock</p>
       <form ng-submit="createItem(quantity, p.product_id)">
@@ -98,10 +98,9 @@
         <p class="single-plus-minus bold" ng-show="showProdCare" ng-click="showProdCare=!showProdCare">&#8211;</p>
       </div>
       <ul class="single-features-care-drop-list"  ng-show="showProdCare">
-        <li><p>high gdkfdfj dslfkjds ow fdsljf  fdsj dkfj fj dsfdsjf dsjdkldsj dkfdsj ldkskld jflksdsd jdfdkdf djkf dkfjds fdf</p></li>
-        <li><p>hi</p></li>
-        <li><p>hi</p></li>
-        <li><p>hi</p></li>
+        <li><p>Machine Wash in 40 °C / 104 °F.</p></li>
+        <li><p>Avoid Bleaching or Ironing the socks.</p></li>
+        <li><p>Socks will last longer if you keep them out of the dryer.</p></li>
       </ul>
     </div>
   </section>

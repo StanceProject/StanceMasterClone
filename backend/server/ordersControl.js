@@ -16,12 +16,11 @@ module.exports = {
 
   submitOrder: (req, res) => {
     let order = req.body
-    console.log(req.body);
-    db.submit_order([], (err, order) => {
+    console.log(req.body)
+    db.submit_order([order.user_id, order.total_price, order.user_name, order.quantity, order.shipping_street_address, order.address_number, order.city, order.state, order.zip], (err, orders) => {
       if (!err) {
-        console.lgo(order);
+        res.status(200).send('Order Sent');
       } else {
-        console.log(err);
         res.send(err)
       }
     })
