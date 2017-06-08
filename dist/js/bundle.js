@@ -79,6 +79,9 @@ angular.module('app').controller('billingCtrl', function ($rootScope, $scope, ma
 
   $scope.total = $rootScope.total;
 
+  $scope.showShipping = true;
+  $scope.showBilling = false;
+
   $scope.checked = true;
 
   $location.hash('top');
@@ -190,7 +193,10 @@ angular.module('app').controller('checkoutCtrl', function ($rootScope, $scope, m
   $scope.test = 'checkout working';
   $scope.test2 = mainSrvc.test;
 
-  $rootScope.total = $scope.uspsGround = {
+  $scope.showShipping = false;
+  $scope.showBilling = false;
+
+  $scope.uspsGround = {
     "name": "USPS Shipping",
     "price": 0.00
   };
@@ -328,7 +334,7 @@ angular.module('app').controller('inventoryMensCtrl', function ($scope, mainSrvc
 });
 'use strict';
 
-angular.module('app').controller('kidsCtrl', function ($rootScope, $scope, mainSrvc) {
+angular.module('app').controller('kidsCtrl', function ($rootScope, $scope, mainSrvc, $location, $anchorScroll) {
 
   $scope.test = 'kids working';
 
@@ -342,6 +348,8 @@ angular.module('app').controller('kidsCtrl', function ($rootScope, $scope, mainS
     });
     mainSrvc.getProducts('Kids', 'Baby').then(function (response) {
       $scope.prod = response;
+      $location.hash('top');
+      $anchorScroll();
     });
   };
   $scope.getProducts();
@@ -586,7 +594,7 @@ angular.module('app').service('mainSrvc', function ($http) {
 });
 'use strict';
 
-angular.module('app').controller('mensCtrl', function ($rootScope, $scope, mainSrvc) {
+angular.module('app').controller('mensCtrl', function ($rootScope, $scope, mainSrvc, $location, $anchorScroll) {
 
   $scope.getProducts = function () {
     mainSrvc.getProducts('Mens', 'New Arrivals').then(function (response) {
@@ -594,6 +602,8 @@ angular.module('app').controller('mensCtrl', function ($rootScope, $scope, mainS
     });
     mainSrvc.getProducts('Mens', 'Super Invisible').then(function (response) {
       $scope.prod = response;
+      $location.hash('top');
+      $anchorScroll();
     });
   };
   $scope.getProducts();
@@ -796,7 +806,7 @@ angular.module('app').directive('userDataDirective', function ($rootScope) {
 });
 'use strict';
 
-angular.module('app').controller('womensCtrl', function ($rootScope, $scope, mainSrvc) {
+angular.module('app').controller('womensCtrl', function ($rootScope, $scope, mainSrvc, $location, $anchorScroll) {
 
   $scope.test = 'womens working';
   $scope.test2 = mainSrvc.test;
@@ -811,6 +821,8 @@ angular.module('app').controller('womensCtrl', function ($rootScope, $scope, mai
     });
     mainSrvc.getProducts('Womens', 'Uncommon Solids').then(function (response) {
       $scope.prod = response;
+      $location.hash('top');
+      $anchorScroll();
     });
   };
   $scope.getProducts();

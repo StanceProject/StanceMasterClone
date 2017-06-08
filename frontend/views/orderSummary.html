@@ -33,11 +33,11 @@
       </div>
     </div>
   </div>
-  <div class="checkout-order-summary-title-container">
+  <div ng-if="showShipping" class="checkout-order-summary-title-container">
     <p class="checkout-order-summary-title condensed capital">Shipping Address</p>
     <p class="checkout-edit">Edit</p>
   </div>
-  <div class="checkout-order-address-info-container">
+  <div ng-if="showShipping" class="checkout-order-address-info-container">
     <p class="checkout-order-address-info regular">{{firstName + " " + lastName}}</p>
     <p class="checkout-order-address-info regular">{{streetAddress}}</p>
     <p class="checkout-order-address-info regular">{{cityAddress}}</p>
@@ -45,11 +45,11 @@
     <br>
     <p class="checkout-order-address-info regular">Method: {{shippingMethod.name}}</p>
   </div>
-  <div class="checkout-order-summary-title-container">
+  <div ng-if="showBilling" class="checkout-order-summary-title-container">
     <p class="checkout-order-summary-title condensed capital">Billing Address</p>
     <p class="checkout-edit">Edit</p>
   </div>
-  <div class="checkout-order-address-info-container">
+  <div ng-if="showBilling" class="checkout-order-address-info-container">
     <p class="checkout-order-address-info regular">Carlos Larios</p>
     <p class="checkout-order-address-info regular">1010 s 10th Ave</p>
     <p class="checkout-order-address-info regular">Yakima, WA 98902</p>

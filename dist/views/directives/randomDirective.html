@@ -1,5 +1,5 @@
 <div class="random-items-container">
-  <div class="random-item" ng-repeat="r in random">
+  <div ui-sref="singleProduct({ id: r.product_id, mwk: r.mwk })" class="random-item" ng-repeat="r in random">
     <img ng-src={{r.main_image_url}} />
     <!-- <hr class="line-under-random-image"> -->
     <div class="random-text">

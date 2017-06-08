@@ -1,7 +1,10 @@
 angular.module('app')
 .controller('billingCtrl', function($rootScope, $scope, mainSrvc, $location, $anchorScroll, $state, stripe) {
 
-$scope.total = $rootScope.total;
+  $scope.total = $rootScope.total;
+
+  $scope.showShipping = true;
+  $scope.showBilling = false;
 
   $scope.checked = true;
 
