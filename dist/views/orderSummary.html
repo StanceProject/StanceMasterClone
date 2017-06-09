@@ -20,8 +20,8 @@
         <p class="bold">{{cartTotal | currency}}</p>
       </div>
       <div class="checkout-order-total-column">
-        <p class="regular">Shipping {{shippingMethod.name}} Edit</p>
-        <p class="regular">{{shippingMethod.price | currency}}</p>
+        <p class="regular">Shipping {{shipping.method.name}} Edit</p>
+        <p class="regular">{{shipping.method.price | currency}}</p>
       </div>
       <div class="checkout-order-total-column">
         <p class="regular">Sales Tax</p>
@@ -29,27 +29,27 @@
       </div>
       <div class="checkout-order-total-column">
         <p class="bold">Order Total:</p>
-        <p id="totalAmount" class="bold">{{5 + cartTotal + shippingMethod.price | currency}}</p>
+        <p id="totalAmount" class="bold">{{5 + cartTotal + shipping.method.price | currency}}</p>
       </div>
     </div>
   </div>
-  <div class="checkout-order-summary-title-container">
+  <div ng-if="showShipping" class="checkout-order-summary-title-container">
     <p class="checkout-order-summary-title condensed capital">Shipping Address</p>
     <p class="checkout-edit">Edit</p>
   </div>
-  <div class="checkout-order-address-info-container">
-    <p class="checkout-order-address-info regular">{{firstName + " " + lastName}}</p>
-    <p class="checkout-order-address-info regular">{{streetAddress}}</p>
-    <p class="checkout-order-address-info regular">{{cityAddress}}</p>
-    <p class="checkout-order-address-info regular">{{country}}</p>
+  <div ng-if="showShipping" class="checkout-order-address-info-container">
+    <p class="checkout-order-address-info regular">{{shipping.firstName + " " + shipping.lastName}}</p>
+    <p class="checkout-order-address-info regular">{{shipping.streetAddress}}</p>
+    <p class="checkout-order-address-info regular">{{shipping.city + ", " + shipping.state + " " + shipping.zip}}</p>
+    <p class="checkout-order-address-info regular">{{shipping.country}}</p>
     <br>
-    <p class="checkout-order-address-info regular">Method: {{shippingMethod.name}}</p>
+    <p class="checkout-order-address-info regular">Method: {{shipping.method.name}}</p>
   </div>
-  <div class="checkout-order-summary-title-container">
+  <div ng-if="showBilling" class="checkout-order-summary-title-container">
     <p class="checkout-order-summary-title condensed capital">Billing Address</p>
     <p class="checkout-edit">Edit</p>
   </div>
-  <div class="checkout-order-address-info-container">
+  <div ng-if="showBilling" class="checkout-order-address-info-container">
     <p class="checkout-order-address-info regular">Carlos Larios</p>
     <p class="checkout-order-address-info regular">1010 s 10th Ave</p>
     <p class="checkout-order-address-info regular">Yakima, WA 98902</p>

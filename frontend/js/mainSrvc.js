@@ -50,10 +50,10 @@ angular.module('app')
     }).then(response => response.data)
   };
 
-  this.deleteCart = () => {
+  this.deleteCart = (userId) => {
     return $http({
       method: 'DELETE',
-      url: '/cart/clear',
+      url: '/api/cart/clear/' + userId,
     }).then(response => response.data)
   };
 

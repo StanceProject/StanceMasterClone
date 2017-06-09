@@ -10,26 +10,26 @@
     <p class="checkout-input-title condensed capital">Select or enter billing address</p>
     <form class="checkout-input-form" action="index.html" method="post">
       <label for="checkout-firstname">First Name</label>
-      <input type="text" id="checkout-firstname">
+      <input value={{shipping.firstName}} type="text" id="checkout-firstname">
       <label for="checkout-lastname">Last Name</label>
-      <input type="text" id="checkout-lastname">
+      <input value={{shipping.lastName}} type="text" id="checkout-lastname">
       <label for="checkout-lastname">Street Address, PO Box</label>
-      <input type="text" id="checkout-lastname">
+      <input value={{shipping.streetAddress}} type="text" id="checkout-lastname">
       <label for="checkout-lastname">Apartment, Suite, Unit, Building, Floor (Optional)</label>
-      <input type="text" id="checkout-lastname">
+      <input value={{shipping.apt}} type="text" id="checkout-lastname">
       <label for="checkout-lastname">City</label>
-      <input type="text" id="checkout-lastname">
+      <input value={{shipping.city}} type="text" id="checkout-lastname">
       <label for="checkout-lastname">ZIP Code</label>
-      <input type="text" id="checkout-lastname">
+      <input value={{shipping.zip}} type="text" id="checkout-lastname">
       <label for="checkout-country">Country</label>
-      <select id="checkout-country">
+      <select value={{shipping.country}} id="checkout-country">
         <option>Choose...</option>
         <option>United States</option>
         <option>Canada</option>
         <option>Mexico</option>
       </select>
       <label for="checkout-state">State</label>
-      <select id="checkout-state">
+      <select value="California" id="checkout-state">
         <option>Choose...</option>
       	<option value="AL">Alabama</option>
       	<option value="AK">Alaska</option>
@@ -84,7 +84,7 @@
       	<option value="WY">Wyoming</option>
       </select>
       <label for="checkout-lastname">Phone</label>
-      <input type="text" id="checkout-lastname">
+      <input value={{shipping.phone}} type="text" id="checkout-lastname">
       <div class="checkout-example-phone-container">
         <p class="checkout-example-phone regular">Example: 333-333-3333</p>
       </div>
@@ -127,7 +127,7 @@
           <option>Discover</option>
         </select>
         <label>Number</label>
-        <input ng-model="payment.card.number" type="text">
+        <input maxlength="16" ng-model="payment.card.number" type="text">
         <div class="checkout-example-phone-container">
           <p class="checkout-example-phone regular">Example: 4111111111111111</p>
         </div>
@@ -168,7 +168,7 @@
         </div>
         <label>Security Code</label>
         <div class="checkout-security-code-container">
-          <input id="checkout-security-code" ng-model="payment.card.cvc" type="text">
+          <input maxlength="3" id="checkout-security-code" ng-model="payment.card.cvc" type="text">
           <p class="regular">What is this?</p>
         </div>
       </div>
@@ -180,7 +180,7 @@
         <p>Save this Card</p>
       </div>
     </form>
-    <button class="checkout-button bold" ui-sref="billing" ng-click="charge()">Place Order</button>
+    <button class="checkout-button bold" ui-sref="billing" ng-click="charge();">Place Order</button>
   </div>
   <order-summary></order-summary>
 </div>

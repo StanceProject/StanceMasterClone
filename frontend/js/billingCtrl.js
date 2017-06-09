@@ -1,12 +1,18 @@
 angular.module('app')
 .controller('billingCtrl', function($rootScope, $scope, mainSrvc, $location, $anchorScroll, $state, stripe) {
 
-$scope.total = $rootScope.total;
+  $scope.total = $rootScope.total;
+
+  $scope.shipping = $rootScope.loggedUser.shipping;
+
+  $scope.showShipping = true;
+  $scope.showBilling = false;
 
   $scope.checked = true;
 
   $location.hash('top');
   $anchorScroll();
+
 
   $scope.uspsGround = {
     "name": "USPS Shipping",
@@ -58,6 +64,7 @@ $scope.total = $rootScope.total;
       //  confirmButtonText: "Continue exporing Stripe"
       // })
       // $scope.zeroOut();
+      $scope.deleteCart();
       $state.go('orders');
    })
    .catch(function (err) {
@@ -69,6 +76,30 @@ $scope.total = $rootScope.total;
        }
      });
   };
+
+  // $scope.submitOrder = () => {
+  //   let order = [];
+  //   order.push({user_id: $rootScope.loggedUser.id});
+  //
+  //
+  //   mainSrvc.submitOrder(order).then((response) => {
+  //
+  //   })
+  // }
+
+  $scope.deleteCart = () => {
+    mainSrvc.deleteCart($rootScope.loggedUser.id).then((response) => {
+    /*may get rid of this alert function*/
+    $rootScope.refreshHeader();
+    swal({
+      title: "Sweet!",
+      text: "Thank you for your purchase!",
+      imageUrl: "./sweetalert-master/example/images/thumbs-up.jpg",
+      timer: 1000,
+      showConfirmButton: false
+    });
+  });
+};
 
 
 });

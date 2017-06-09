@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('mensCtrl', function($rootScope, $scope, mainSrvc) {
+.controller('mensCtrl', function($rootScope, $scope, mainSrvc, $location, $anchorScroll) {
 
 
   $scope.getProducts = () => {
@@ -8,6 +8,8 @@ angular.module('app')
      });
      mainSrvc.getProducts('Mens', 'Super Invisible').then(function(response) {
        $scope.prod = response;
+       $location.hash('top');
+       $anchorScroll();
      });
    };
    $scope.getProducts();

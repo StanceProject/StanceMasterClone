@@ -91,7 +91,7 @@ app.get('/logout', function(req, res) {
 
 // CART
 app.post('/api/cart', cartControl.getCart);
-app.delete('/api/cart/clear', cartControl.deleteCart);
+app.delete('/api/cart/clear/:userId', cartControl.deleteCart);
 app.delete('/api/cart/clear/:product_id/:user_id', cartControl.deleteItemInCart);
 app.post('/api/cart/add', cartControl.createCart);
 app.put('/api/cart/update', cartControl.createCart);

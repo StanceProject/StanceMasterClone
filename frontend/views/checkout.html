@@ -10,26 +10,26 @@
     <p class="checkout-input-title condensed capital">Select or enter shipping address</p>
     <form class="checkout-input-form" action="index.html" method="post">
       <label for="checkout-firstname">First Name</label>
-      <input ng-model="firstName" type="text" id="checkout-firstname">
+      <input ng-model="shipping.firstName" type="text" id="checkout-firstname">
       <label for="checkout-lastname">Last Name</label>
-      <input ng-model="lastName" type="text" id="checkout-lastname">
+      <input ng-model="shipping.lastName" type="text" id="checkout-lastname">
       <label for="checkout-lastname">Street Address, PO Box</label>
-      <input ng-model="streetAddress" type="text" id="checkout-lastname">
+      <input ng-model="shipping.streetAddress" type="text" id="checkout-lastname">
       <label for="checkout-lastname">Apartment, Suite, Unit, Building, Floor (Optional)</label>
-      <input type="text" id="checkout-lastname">
+      <input ng-model="shipping.apt" type="text" id="checkout-lastname">
       <label for="checkout-lastname">City</label>
-      <input ng-model="city" type="text" id="checkout-lastname">
+      <input ng-model="shipping.city" type="text" id="checkout-lastname">
       <label for="checkout-lastname">ZIP Code</label>
-      <input type="text" id="checkout-lastname">
-      <label ng-model="country" for="checkout-country">Country</label>
-      <select id="checkout-country">
+      <input ng-model="shipping.zip" type="text" id="checkout-lastname">
+      <label for="checkout-country">Country</label>
+      <select ng-model="shipping.country" id="checkout-country">
         <option>Choose...</option>
         <option>United States</option>
         <option>Canada</option>
         <option>Mexico</option>
       </select>
       <label for="checkout-state">State</label>
-      <select id="checkout-state">
+      <select ng-model="shipping.state" id="checkout-state">
         <option>Choose...</option>
       	<option value="AL">Alabama</option>
       	<option value="AK">Alaska</option>
@@ -84,7 +84,7 @@
       	<option value="WY">Wyoming</option>
       </select>
       <label for="checkout-lastname">Phone</label>
-      <input type="text" id="checkout-lastname">
+      <input ng-model="shipping.phone" type="text" id="checkout-lastname">
       <div class="checkout-example-phone-container">
         <p class="checkout-example-phone regular">Example: 333-333-3333</p>
       </div>
@@ -93,7 +93,7 @@
         <p>Add to Address Book</p>
       </div>
       <div class="checkout-checkbox">
-        <input class="checkbox" type="checkbox" checked>
+        <input ng-model="shipping.keep" class="checkbox" type="checkbox" checked>
         <p>Use this address for Billing</p>
       </div>
       <p class="checkout-gift-title bold">Is this a gift?</p>
@@ -139,7 +139,7 @@
         </label>
       </div>
     </form>
-    <button class="checkout-button bold" ui-sref="billing">Continue to Billing</button>
+    <button class="checkout-button bold" ng-click="addShipping()" ui-sref="billing">Continue to Billing</button>
   </div>
   <order-summary></order-summary>
 </div>
