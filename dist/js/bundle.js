@@ -79,6 +79,8 @@ angular.module('app').controller('billingCtrl', function ($rootScope, $scope, ma
 
   $scope.total = $rootScope.total;
 
+  $scope.shipping = $rootScope.loggedUser.shipping;
+
   $scope.showShipping = true;
   $scope.showBilling = false;
 
@@ -134,6 +136,7 @@ angular.module('app').controller('billingCtrl', function ($rootScope, $scope, ma
       //  confirmButtonText: "Continue exporing Stripe"
       // })
       // $scope.zeroOut();
+      $scope.deleteCart();
       $state.go('orders');
     }).catch(function (err) {
       if (err.type && /^Stripe/.test(err.type)) {
@@ -141,6 +144,30 @@ angular.module('app').controller('billingCtrl', function ($rootScope, $scope, ma
       } else {
         console.log('Other error occurred, possibly with your API', err.message);
       }
+    });
+  };
+
+  // $scope.submitOrder = () => {
+  //   let order = [];
+  //   order.push({user_id: $rootScope.loggedUser.id});
+  //
+  //
+  //   mainSrvc.submitOrder(order).then((response) => {
+  //
+  //   })
+  // }
+
+  $scope.deleteCart = function () {
+    mainSrvc.deleteCart($rootScope.loggedUser.id).then(function (response) {
+      /*may get rid of this alert function*/
+      $rootScope.refreshHeader();
+      swal({
+        title: "Sweet!",
+        text: "Thank you for your purchase!",
+        imageUrl: "./sweetalert-master/example/images/thumbs-up.jpg",
+        timer: 1000,
+        showConfirmButton: false
+      });
     });
   };
 });
@@ -220,17 +247,11 @@ angular.module('app').controller('checkoutCtrl', function ($rootScope, $scope, m
     /*talk to Todd about this*/
   };
 
-  $scope.deleteCart = function () {
-    storeSrvc.deleteCart().then(function (response) {
-      /*may get rid of this alert function*/
-      swal({
-        title: "Sweet!",
-        text: "Thank you for your purchase!",
-        imageUrl: "./sweetalert-master/example/images/thumbs-up.jpg",
-        timer: 1000,
-        showConfirmButton: false
-      });
-    });
+  $scope.addShipping = function () {
+    if ($scope.shipping.keep) {
+      $rootScope.loggedUser.shipping = $scope.shipping;
+      $rootScope.loggedUser.shipping.method = $scope.shippingMethod;
+    }
   };
 });
 "use strict";
@@ -486,10 +507,10 @@ angular.module('app').service('mainSrvc', function ($http) {
     });
   };
 
-  this.deleteCart = function () {
+  this.deleteCart = function (userId) {
     return $http({
       method: 'DELETE',
-      url: '/cart/clear'
+      url: '/api/cart/clear/' + userId
     }).then(function (response) {
       return response.data;
     });
