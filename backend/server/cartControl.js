@@ -23,7 +23,7 @@ module.exports = {
   },
 
   deleteCart: (req, res) => {
-    db.delete_cart((err, cart) => {
+    db.delete_cart(req.params.userId, (err, cart) => {
       if (!err) {
         res.send(cart);
       } else {
