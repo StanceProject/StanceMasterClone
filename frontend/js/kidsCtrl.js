@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('kidsCtrl', function($rootScope, $scope, mainSrvc) {
+.controller('kidsCtrl', function($rootScope, $scope, mainSrvc, $location, $anchorScroll) {
 
   $scope.test = 'kids working';
 
@@ -13,6 +13,8 @@ angular.module('app')
      });
      mainSrvc.getProducts('Kids', 'Baby').then(function(response) {
        $scope.prod = response;
+       $location.hash('top');
+       $anchorScroll();
      });
    };
    $scope.getProducts();

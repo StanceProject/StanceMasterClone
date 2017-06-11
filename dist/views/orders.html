@@ -8,24 +8,24 @@
       <div class="order-info">
         <div class="order-status">
           <div class="order-status-status">
-            <p><span class="bold">Date Ordered:</span>               </p>
-            <p><span class="bold">Order Status:</span>               </p>
-            <p><span class="bold">Order Number:</span>               </p>
+            <p><span class="bold">Date Ordered:</span>{{}}</p>
+            <p><span class="bold">Order Status:</span> Completed</p>
+            <p><span class="bold">Order Number:</span> {{order.id}}</p>
           </div>
           <button type="submint" name="button" class="bold">Order Details</button>
         </div>
         <div class="order-product-info">
           <div class="order-status-2">
             <p class="order-status-subheading bold">Shipped to:</p>
-            <p>{{order.name}}               </p>
+            <p> {{order.user_name}}</p>
           </div>
           <div class="order-status-2">
             <p class="order-status-subheading bold">Items:</p>
-            <p class="capital"> socks      </p>
+            <p class="capital">{{order.quantity}}</p>
           </div>
           <div class="order-status-2">
-            <p class="order-status-subheading bold">Order Total:                </p>
-            <p>$24.99</p>
+            <p class="order-status-subheading bold">Order Total:</p>
+            <p>{{order.total_price | currency}}</p>
           </div>
         </div>
       </div>
