@@ -754,6 +754,7 @@ angular.module('app').controller('singleProductCtrl', function ($rootScope, $sco
   $scope.getSingleProduct = function () {
     mainSrvc.getSingleProduct($stateParams.id).then(function (response) {
       $scope.singleProduct = response;
+      $scope.features = JSON.parse(response[0].features);
     });
   };
   $scope.getSingleProduct();

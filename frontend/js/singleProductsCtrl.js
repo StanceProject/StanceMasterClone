@@ -6,6 +6,7 @@ angular.module('app')
   $scope.getSingleProduct = () => {
     mainSrvc.getSingleProduct($stateParams.id).then(function(response) {
       $scope.singleProduct = response;
+      $scope.features = JSON.parse(response[0].features);
     });
   }
   $scope.getSingleProduct();

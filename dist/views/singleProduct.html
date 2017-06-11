@@ -84,11 +84,8 @@
         <p class="single-plus-minus bold" ng-click="showProdFeatures=!showProdFeatures" ng-hide="showProdFeatures">+</p>
         <p class="single-plus-minus bold" ng-click="showProdFeatures=!showProdFeatures" ng-show="showProdFeatures">&#8211;</p>
       </div>
-      <ul class="single-features-care-drop-list"  ng-show="showProdFeatures">
-        <li><p>hi</p></li>
-        <li><p>hi</p></li>
-        <li><p>hi</p></li>
-        <li><p>hi</p></li>
+      <ul class="single-features-care-drop-list"  ng-show="showProdFeatures" ng-repeat="f in features">
+        <li><p>{{f}}</p></li>
       </ul>
     </div>
     <div class="single-features-care-list">
