@@ -5,6 +5,7 @@ angular.module('app').directive("orderSummary", function(){
     controller: function($rootScope, $scope) {
       $scope.items = $rootScope.products
       $scope.cartTotal = $rootScope.cartTotal;
+      $rootScope.total = (5 + $scope.cartTotal);
     }
   }
 })

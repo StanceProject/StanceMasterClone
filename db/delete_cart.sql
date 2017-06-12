@@ -1,1 +1,2 @@
-delete from cart;
+DELETE FROM cart
+WHERE user_id = $1;

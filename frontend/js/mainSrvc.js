@@ -50,10 +50,10 @@ angular.module('app')
     }).then(response => response.data)
   };
 
-  this.deleteCart = () => {
+  this.deleteCart = (userId) => {
     return $http({
       method: 'DELETE',
-      url: '/cart/clear',
+      url: '/api/cart/clear/' + userId,
     }).then(response => response.data)
   };
 
@@ -131,5 +131,17 @@ angular.module('app')
     }).then(response => {
 
     });
+  }
+
+  // BILLING //////////////////////////////////////////
+  this.processPayment = function(total, payment) {
+   return $http({
+    method: 'POST',
+    url: '/api/billing',
+    data: {
+       amount: total,
+       payment: payment
+    }
+   })
   }
 });

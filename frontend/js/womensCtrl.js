@@ -1,8 +1,9 @@
 angular.module('app')
-.controller('womensCtrl', function($rootScope, $scope, mainSrvc) {
+.controller('womensCtrl', function($rootScope, $scope, mainSrvc, $location, $anchorScroll) {
 
   $scope.test = 'womens working';
   $scope.test2 = mainSrvc.test;
+
 
   $scope.getProducts = () => {
     console.log('get products from ctrl');
@@ -14,6 +15,8 @@ angular.module('app')
      });
      mainSrvc.getProducts('Womens', 'Uncommon Solids').then(function(response) {
        $scope.prod = response;
+       $location.hash('top');
+       $anchorScroll();
      });
    };
    $scope.getProducts();
