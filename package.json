@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/StanceProject/StanceMasterClone#readme",
   "dependencies": {
+    "angular-stripe": "^4.2.12",
+    "auth0-js": "^8.10.0",
     "babel-preset-es2015": "^6.24.0",
     "body-parser": "^1.17.1",
     "connect-ensure-login": "^0.1.1",
@@ -39,8 +41,7 @@
     "massive": "^2.6.0",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0",
-    "angular-stripe": "^4.2.12",
-    "stripe.js": "0.0.1",
-    "stripe": "^4.22.0"
+    "stripe": "^4.22.0",
+    "stripe.js": "0.0.1"
   }
 }

@@ -405,8 +405,11 @@
     }
 
   .header-left-bottom {
-    padding-top: 45px;
-
+    padding-top: 40px;
+    img {
+      height: 35px;
+      width: 135px;
+    }
   }
 }
 

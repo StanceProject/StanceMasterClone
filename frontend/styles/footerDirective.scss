@@ -105,7 +105,8 @@
 
     .footer2-content {
       width: 100%;
-
+      display: flex;
+      justify-content: space-between;
       input {
         background-color: transparent;
         border-width: 1px;
@@ -126,7 +127,7 @@
       button {
         background-color: rgba(26,26,26,0.1);
         border-width: 1px;
-        border-color: #3B3B3F;
+        border-color: #3B3B3F; 
         border-style: solid;
         width: 80px;
         height: 48px;
