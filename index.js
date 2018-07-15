@@ -66,7 +66,7 @@ app.use(session({
 // })
 
 
-const port = 80;    //80
+const port = 8080;    //80
 
 app.set('db', massiveInstance);
 const productsControl = require('./backend/server/productsControl');

@@ -1,13 +1,13 @@
-var gulp = require("gulp");
-var sourcemaps = require("gulp-sourcemaps");
-var sass = require("gulp-sass");
-var concat = require("gulp-concat");
-var CacheBuster = require("gulp-cachebust");
-var print = require("gulp-print");
-var babel = require("gulp-babel");
-var uglify = require("gulp-uglify");
+const gulp = require("gulp");
+const sourcemaps = require("gulp-sourcemaps");
+const sass = require("gulp-sass");
+const concat = require("gulp-concat");
+const CacheBuster = require("gulp-cachebust");
+const print = require("gulp-print");
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
 
-var cachebust = new CacheBuster;
+const cachebust = new CacheBuster;
 
 
 gulp.task("build-css", function(){

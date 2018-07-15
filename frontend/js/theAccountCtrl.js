@@ -2,6 +2,7 @@ angular.module('app')
 .controller('accountCtrl', function($rootScope, $scope, mainSrvc, $location, $timeout) {
 
   $scope.user = $rootScope.loggedUser;
+  // console.log("please worl", $rootScope);
 
   $scope.isShown = true;
   $scope.isShown2 = true;

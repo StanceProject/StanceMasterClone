@@ -1,8 +1,8 @@
 const app = require('../.././index.js')
     , db = app.get('db');
 
-var stripeKey = require('../.././stripeSecretKey');
-var stripe = require('stripe')(stripeKey.secretKey);
+// var stripeKey = require('../.././stripeSecretKey');
+// var stripe = require('stripe')(stripeKey.secretKey);
 
 module.exports = {
 

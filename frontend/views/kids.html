@@ -5,9 +5,9 @@
   <div class="home-jumbotron-container">
     <!-- <img src="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dwb6ebbc25/2017/assets/in-line/socks/casual/kids/dual-gender/lifestyle/chairs/kids-dual-gender-chairs-secondary_md.jpg" alt="Kids New Arrivals"> -->
     <picture>
-        <source media="(min-width: 1440px)" srcset="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dwb6ebbc25/2017/assets/in-line/socks/casual/kids/dual-gender/lifestyle/chairs/kids-dual-gender-chairs-primary_lg.jpg">
-        <source media="(min-width: 750px)" srcset="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dwb6ebbc25/2017/assets/in-line/socks/casual/kids/dual-gender/lifestyle/chairs/kids-dual-gender-chairs-secondary_md.jpg">
-        <img src="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dwb6ebbc25/2017/assets/in-line/socks/casual/kids/dual-gender/lifestyle/chairs/kids-dual-gender-chairs-secondary_sm.jpg" alt="Kids New Arrivals">
+        <source media="(min-width: 1440px)" srcset="../images/kids1-1main.jpg">
+        <source media="(min-width: 750px)" srcset="../images/kids1-2main.jpg">
+        <img src="../images/kids1-3main.jpg" alt="Kids New Arrivals">
     </picture>
     <div class="home-jumbotron-text">
       <p class="home-subheading capital regular">New Arrivals</p>
@@ -18,19 +18,19 @@
   </div>
   <div class="home-collection-images condensed capital">
     <div class="home-collection">
-      <img src="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dw659d1a4d/2017/assets/in-line/socks/casual/kids/boys/lifestyle/purple-hand/secondary_md.jpg" alt="Image of stars and stripes">
+      <img src="../images/kids2boy.jpg" alt="Image of stars and stripes">
       <p>Boys</p>
     </div>
     <div class="home-collection">
-      <img src="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dw11cbe815/2017/assets/in-line/socks/casual/kids/girls/lifestyle/girls-americana/secondary_md.jpg" alt="Image of basketball legends socks">
+      <img src="../images/kids2girls.jpg" alt="Image of basketball legends socks">
       <p>Girls</p>
     </div>
     <div class="home-collection">
-      <img src="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dw2c8ff372/2017/assets/in-line/socks/casual/baby-toddler/boys/lifestyle/tricycle/baby-toddler-tricycle-secondary_md.jpg" alt="image of womens socks">
+      <img src="../images/kids4baby.jpg" alt="image of womens socks">
       <p>Baby</p>
     </div>
     <div class="home-collection">
-      <img src="http://demandware.edgesuite.net/bbbn_prd/on/demandware.static/-/Library-Sites-StanceSharedLibrary/default/dwc0b96eb1/assets/in-line/underwear/boxer-briefs/merch/in-line-underwear-boys-secondary-new_md.jpg" alt="image of kids socks">
+      <img src="../images/kids5underwear.jpg" alt="image of kids socks">
       <p>Boys Underwear</p>
     </div>
   </div>
@@ -38,7 +38,7 @@
 
 <div class="featuredSocks">
   <p class="featured-title condensed capital" id="boys">Boys</p>
-  <button class="featured-button bold">Shop Now</button>
+  <button class="featured-button bold" ui-sref="inventoryKids">Shop Now</button>
   <div class="featured-items-container">
     <div class="featured-item" ng-repeat="p in products | limitTo:4" ui-sref="singleProduct({ id: p.product_id, mwk: p.mwk })">
       <img ng-src={{p.main_image_url}} />
@@ -52,7 +52,7 @@
 
 <div class="featuredSocks">
   <p class="featured-title condensed capital">Girls</p>
-  <button class="featured-button bold">Shop Now</button>
+  <button class="featured-button bold" ui-sref="inventoryKids">Shop Now</button>
   <div class="featured-items-container">
     <div class="featured-item" ng-repeat="p in product | limitTo:-4" ui-sref="singleProduct({ id: p.product_id, mwk: p.mwk })">
       <img ng-src={{p.main_image_url}} />
@@ -66,7 +66,7 @@
 
 <div class="featuredSocks">
   <p class="featured-title condensed capital">Baby</p>
-  <button class="featured-button bold">Shop Now</button>
+  <button class="featured-button bold" ui-sref="inventoryKids">Shop Now</button>
   <div class="featured-items-container">
     <div class="featured-item" ng-repeat="p in prod | limitTo:-4" ui-sref="singleProduct({ id: p.product_id, mwk: p.mwk })">
       <img ng-src={{p.main_image_url}} />
@@ -84,12 +84,12 @@
     <p class="kids-carousel-title capital condensed">It's their world,<br>we're just<br>living in it.</p>
     <div class="line-under-kids-carousel-title"></div>
     <p class="kids-carousel-text regular">Get them started on the right foot. With new styles, including a few for the "big kids," you're sure to find something they'll all love.</p>
-    <button class="kids-carousel-button bold">Shop New Arrivals</button>
+    <button class="kids-carousel-button bold" ui-sref="inventoryKids">Shop New Arrivals</button>
   </div>
   <div class="kids-carousel-bottom">
     <div class="kids-carousel-bottom-description">
       <div class="line-in-kids-carousel-bottom-description"></div>
-      <p class="kids-carousel-description bold">Kids New Arrivals</p>
+      <p class="kids-carousel-description bold" >Kids New Arrivals</p>
     </div>
     <kids-carousel></kids-carousel>
   </div>
